@@ -71,7 +71,7 @@ router.get('/requerimiento/:id', function (req, res) {
 });
 router.get('/productos/:tiendaid', function (req, res) {
     const query = "SELECT * FROM PRODUCTOS WHERE TIENDAID = " + req.params.tiendaid + " AND ELIMINADO != 1";
-    // console.log('get cotenidos', query);
+    console.log('get productos', query);
     server_1.conex.query(query, function (err, rows, fields) {
         if (err)
             throw err;
