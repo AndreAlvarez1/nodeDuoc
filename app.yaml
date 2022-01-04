@@ -1,0 +1,4 @@
+runtime: nodejs10
+service: node-duoc
+env_variables:
+  NODE_ENV: 'production'
