@@ -48,9 +48,9 @@ router.get('/userId/:id', function (req, res) {
         res.json({ resultado: 'ok', datos: rows });
     });
 });
-// 
+// order by semana
 router.get('/requerimientos/:status', function (req, res) {
-    const query = "SELECT E.id, E.ASIGNATURAID, A.ASIGNATURA, E.TIENDAID, T.tienda, E.NUMSEMANA, E.status, E.reg_date, E.USERID, U.NOMBRE as PROFE FROM ENCREQ E LEFT JOIN USUARIOS U ON E.USERID = U.CODIGO LEFT JOIN ASIGNATURAS A ON E.ASIGNATURAID = A.id  LEFT JOIN TIENDAS T ON E.TIENDAID = T.id WHERE E.status > " + req.params.status + " ";
+    const query = "SELECT E.id, E.ASIGNATURAID, A.ASIGNATURA, E.TIENDAID, T.tienda, E.NUMSEMANA, E.status, E.reg_date, E.USERID, U.NOMBRE as PROFE FROM ENCREQ E LEFT JOIN USUARIOS U ON E.USERID = U.CODIGO LEFT JOIN ASIGNATURAS A ON E.ASIGNATURAID = A.id  LEFT JOIN TIENDAS T ON E.TIENDAID = T.id WHERE E.status > " + req.params.status + "  ORDER BY NUMSEMANA ASC";
     // console.log('get reqs', query);
     server_1.conex.query(query, function (err, rows, fields) {
         if (err)
