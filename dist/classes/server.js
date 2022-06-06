@@ -13,7 +13,7 @@ exports.conex = sql.createConnection(conexiones_1.DUOCGOURNET);
 setInterval(function () { exports.conex.query('SELECT 1'); }, 4000);
 class Server {
     constructor() {
-        this.app = express_1.default();
+        this.app = (0, express_1.default)();
         this.port = environment_1.SERVER_PORT;
         // Config Sockets
         this.httpServer = new http_1.default.Server(this.app);
